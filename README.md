@@ -1,6 +1,16 @@
 # Fable Yeon Skill
 
-> Packaged by `ai._.yeon` / `ai.director_yeon`
+> Thread ID: `ai.director_yeon`
+
+## 공유 안내 / Sharing Notice
+
+한국어:
+
+이 프로젝트를 공유하거나 재배포할 때는 출처를 남겨 주세요. 도움이 되었다면 GitHub Star도 눌러 주시면 큰 힘이 됩니다.
+
+English:
+
+If you share or redistribute this project, please keep the credit/source notice. If it helped you, a GitHub Star would be appreciated.
 
 ## 한국어 소개
 
@@ -194,6 +204,6 @@ For the Claude Code adapter, verify hook firing once inside a real Claude Code e
 
 ## Credit / Notice
 
-Packaged by `ai._.yeon` / `ai.director_yeon`.
+Thread ID: `ai.director_yeon`.
 
 This is an adapted and rebuilt distribution. It is not a claim of original authorship from scratch. Preserve applicable upstream license and credit notices when publishing or redistributing.

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Keyword-triggered opt-in Fable/Mythos evidence gate for Codex and Claude Code.",
   "author": {
-    "name": "ai._.yeon"
+    "name": "ai.director_yeon"
   },
   "license": "MIT",
   "keywords": [
@@ -23,7 +23,7 @@
     "displayName": "Fable Yeon Skill",
     "shortDescription": "Keyword-triggered Fable/Mythos evidence gate for Codex and Claude Code.",
     "longDescription": "Fable Yeon Skill packages Codex and Claude Code adapters for an opt-in evidence gate. Users can invoke it with Fable/Mythos keywords for important work, while lightweight tasks avoid unnecessary context and usage cost. Hooks may remain installed, but enforcement stays off by default and only activates with an active gated task and valid lease.",
-    "developerName": "ai._.yeon / ai.director_yeon",
+    "developerName": "ai.director_yeon",
     "category": "Productivity",
     "capabilities": [
       "Skills"
