@@ -55,17 +55,37 @@ Both adapters are included in this one folder.
 
 한국어:
 
+- `페이블`, `미토스`, `Fable`, `Mythos` 같은 키워드만 말해도 에이전트가 이 스킬을 라우팅할 수 있게 설계했습니다.
 - hook을 설치해도 바로 모든 작업을 막지는 않습니다.
 - 게이트는 기본적으로 OFF입니다.
 - 실제 차단은 활성 작업과 유효한 `.forge/lease.json`이 있을 때만 동작합니다.
 - 작업이 중단되거나 lease가 만료되면 fail-open 방식으로 일반 작업을 방해하지 않습니다.
+- 가벼운 질문, 단순 파일 확인, 작은 수정처럼 굳이 SPEC/DONE 게이트가 필요 없는 작업에서는 컨텍스트와 사용량을 낭비하지 않도록 opt-in 방식으로 만들었습니다.
+- 중요한 작업에서만 `페이블` 같은 키워드로 게이트를 켜고, 작업이 끝나면 `close`, `off`, lease 만료, 재부팅 무효화로 오래 남지 않게 설계했습니다.
 
 English:
 
+- Saying trigger words such as `페이블`, `미토스`, `Fable`, or `Mythos` is enough for the agent to route into this skill.
 - Installing hooks does not immediately block all work.
 - The gate is OFF by default.
 - Enforcement only starts when there is an active gated task and a valid `.forge/lease.json`.
 - If the task is interrupted or the lease expires, the hooks fail open so normal work is not blocked.
+- The gate is intentionally opt-in so lightweight questions, quick file checks, and small edits do not waste context or usage on a full SPEC/DONE workflow.
+- For important work, the user can invoke the gate with a Fable/Mythos keyword. After the task ends, `close`, `off`, lease expiry, or reboot invalidation prevents stale hooks from staying active.
+
+## 왜 스위치형 게이트인가 / Why A Switch-Style Gate?
+
+한국어:
+
+항상 켜진 강제 게이트는 모든 작업을 무겁게 만듭니다. 단순 질문이나 작은 확인에도 SPEC 작성, 검증 증거, hook 기록이 들어가면 컨텍스트와 사용량이 불필요하게 늘어납니다. Fable Yeon Skill은 그래서 **필요할 때만 켜는 안전장치**로 설계했습니다.
+
+설치된 hook은 계속 등록되어 있을 수 있지만, 실제 차단은 `gate ON + active task + valid lease`가 모두 있을 때만 일어납니다. 이 구조는 중요한 작업에는 강한 검증을 주고, 평소 작업에는 가볍게 지나가게 합니다. 세션이 끊기거나 작업이 닫히거나 lease가 만료되면 gate는 사실상 꺼진 상태처럼 fail-open 됩니다.
+
+English:
+
+An always-on hard gate makes every task heavier. If even small questions or quick checks require SPEC writing, evidence capture, and hook logging, the agent spends unnecessary context and usage. Fable Yeon Skill is therefore designed as a **use-it-when-needed safety switch**.
+
+The hooks may remain installed, but real blocking only happens when `gate ON + active task + valid lease` are all present. This gives high-risk work a strong verification path while keeping normal work lightweight. If the session is interrupted, the task is closed, or the lease expires, the gate effectively falls back open instead of leaving stale enforcement behind.
 
 ## Codex 설치 / Codex Install
 

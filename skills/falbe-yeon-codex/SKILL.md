@@ -15,6 +15,24 @@ Read `read.md` in this skill folder for the installed hook inventory, skill inve
 
 The installed hooks may remain registered, but enforcement requires a fresh project lease. No valid `.forge/lease.json` means hooks fail open and do not block or record. A lease expires automatically after the TTL, is rejected after reboot, and is cleared by `off` or `close`.
 
+## Activation Philosophy
+
+The user can invoke this workflow with short trigger words such as `페이블`,
+`미토스`, `Fable`, `Mythos`, or `FableCodex`. The goal is to make deliberate
+gated work easy to request without making every ordinary Codex task heavy.
+
+This skill is intentionally opt-in. Lightweight questions, quick file checks,
+and small low-risk edits do not need a full SPEC-to-IMPLEMENT-to-VERIFY loop,
+and forcing that loop on every turn wastes context and usage. Fable is the
+switch for work that deserves stronger evidence, not a permanent tax on every
+conversation.
+
+Hook registration is therefore separate from hook enforcement. Hooks may remain
+installed, but they only enforce when the project gate is ON, an active task
+exists, and a valid lease exists. When the task closes, `off` is called, the
+lease expires, or the machine reboots, enforcement falls open so stale sessions
+do not keep blocking normal work.
+
 ## Local State Files
 
 - `.forge/spec.json`: task contract, task-level SSOT decisions/ambiguities, external-effect approvals, and acceptance evidence SSOT.

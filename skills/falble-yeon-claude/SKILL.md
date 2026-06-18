@@ -26,6 +26,23 @@ Actual enforcement requires all of these:
 
 If any check fails, hooks fail open.
 
+## Activation Philosophy
+
+The user can invoke this workflow with short trigger words such as `페이블`,
+`미토스`, `Fable`, or `Mythos`. The point is to make protected work easy to ask
+for while keeping normal Claude Code tasks lightweight.
+
+This adapter is intentionally opt-in. Small questions, quick checks, and
+low-risk edits should not spend extra context and usage on a full
+SPEC-before-implementation workflow. Fable is a switch for tasks that need
+evidence and closure, not a permanent blocker for every session.
+
+Hook registration is separate from hook enforcement. Hooks may remain installed,
+but real blocking only happens when the gate is ON, a task is active, and the
+lease is valid. When the task closes, `off` is called, the lease expires, or the
+machine reboots, enforcement fails open so stale sessions do not keep blocking
+normal work.
+
 ## Start
 
 From the project root, start a gated task through the packaged core:
