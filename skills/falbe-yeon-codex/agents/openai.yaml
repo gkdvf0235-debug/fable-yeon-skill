@@ -1,0 +1,4 @@
+interface:
+  display_name: "Falbe Yeon Codex"
+  short_description: "Opt-in Fable/Mythos hard gate for Codex tasks"
+  default_prompt: "Use $falbe-yeon-codex for this 페이블/미토스 gated task."

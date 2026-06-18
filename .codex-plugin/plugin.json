@@ -1,0 +1,40 @@
+{
+  "name": "fable-yeon-skill",
+  "version": "0.1.0",
+  "description": "Combined Codex and Claude Code Fable/Mythos evidence gate package.",
+  "author": {
+    "name": "ai._.yeon"
+  },
+  "license": "MIT",
+  "keywords": [
+    "codex",
+    "fable",
+    "mythos",
+    "페이블",
+    "미토스",
+    "gate",
+    "hooks",
+    "verification",
+    "spec",
+    "agent-workflow"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Fable Yeon Skill",
+    "shortDescription": "Opt-in Fable/Mythos evidence gate for Codex and Claude Code.",
+    "longDescription": "Fable Yeon Skill packages Codex and Claude Code adapters for an opt-in evidence gate that stays off by default, requires an active task and valid lease, blocks implementation edits until SPEC passes, records touched files, and requires live verification evidence before closing.",
+    "developerName": "ai._.yeon / ai.director_yeon",
+    "category": "Productivity",
+    "capabilities": [
+      "Skills"
+    ],
+    "defaultPrompt": [
+      "Use $falbe-yeon-codex for this task.",
+      "페이블 게이트로 이 작업을 진행하세요.",
+      "미토스 루프로 이 작업을 보호하세요.",
+      "Run this task with the Falbe Yeon hard gate.",
+      "Turn on the Fable gate for this high-risk change."
+    ],
+    "brandColor": "#0F766E"
+  }
+}
